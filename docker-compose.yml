@@ -1,0 +1,6 @@
+﻿services:
+  netstore:
+    image: netstore
+    build:
+      context: .
+      dockerfile: NetStore/Dockerfile
