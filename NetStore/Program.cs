@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NetStore.Data;
+using Tailwind;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(
 );
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment()) _ = app.RunTailwind("tailwind", "./");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
